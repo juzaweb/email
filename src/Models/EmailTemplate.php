@@ -3,7 +3,7 @@
 namespace Juzaweb\Email\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Mymo\Core\Traits\ResourceModel;
+use Juzaweb\Core\Traits\ResourceModel;
 
 /**
  * Juzaweb\Email\Models\EmailTemplate
