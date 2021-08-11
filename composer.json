@@ -1,0 +1,27 @@
+{
+    "name": "juzaweb/email",
+    "description": "Mymo CMS",
+    "keywords": [],
+    "license": "MIT",
+    "homepage": "https://github.com/mymocms/mymocms",
+    "require": {
+        "php": "^7.2.5|^8.0"
+    },
+    "require-dev": {
+      "laravel/laravel": "^6.0 | ^7.0 | ^8.0",
+      "phpunit/phpunit": "6.0 | 7.0 | 7.5 | 8.4 | ^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+          "Juzaweb\\Email\\Tests\\": "tests/",
+          "Juzaweb\\Email\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Juzaweb\\Email\\Providers\\EmailTemplateServiceProvider"
+        ]
+      }
+    }
+}
