@@ -109,7 +109,7 @@ class EmailService
                 'data' => $data,
             ]);
 
-            $method = config('mymo.email.method');
+            $method = config('juzaweb.email.method');
             switch ($method) {
                 case 'sync':
                     (new SendEmailService($emailList))->send();

@@ -19,7 +19,7 @@ class SendMailCommand extends Command
      * */
     public function handle()
     {
-        if (config('mymo.email.method') != 'cron') {
+        if (config('juzaweb.email.method') != 'cron') {
             return;
         }
 
