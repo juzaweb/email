@@ -26,6 +26,9 @@ use Juzaweb\Core\Traits\ResourceModel;
  * @method static \Illuminate\Database\Eloquent\Builder|EmailTemplate whereSubject($value)
  * @method static \Illuminate\Database\Eloquent\Builder|EmailTemplate whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $layout
+ * @method static \Illuminate\Database\Eloquent\Builder|EmailTemplate whereFilter($params = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|EmailTemplate whereLayout($value)
  */
 class EmailTemplate extends Model
 {
