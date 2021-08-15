@@ -12,7 +12,7 @@
  * Time: 12:25 PM
  */
 
-use Juzaweb\Core\Core\Facades\HookAction;
+use Juzaweb\Core\Facades\HookAction;
 
 HookAction::addAdminMenu(
     trans('juzaweb::app.email_setting'),
