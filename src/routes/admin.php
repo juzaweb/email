@@ -23,11 +23,11 @@ Route::group(['prefix' => 'setting/email'], function () {
 Route::jwResource('email-template', 'EmailTemplateController');
 
 Route::group(['prefix' => 'logs/email'], function () {
-    Route::get('/', 'EmailLogsController@index')->name('admin.logs.email');
+    Route::get('/', 'EmailLogController@index')->name('admin.logs.email');
 
-    Route::get('/get-data', 'EmailLogsController@getData')->name('admin.logs.email.getdata');
+    Route::get('/get-data', 'EmailLogController@getData')->name('admin.logs.email.getdata');
 
-    Route::post('/status', 'EmailLogsController@status')->name('admin.logs.email.status');
+    Route::post('/status', 'EmailLogController@status')->name('admin.logs.email.status');
 
-    Route::post('/remove', 'EmailLogsController@remove')->name('admin.logs.email.remove');
+    Route::post('/remove', 'EmailLogController@remove')->name('admin.logs.email.remove');
 });

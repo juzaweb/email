@@ -2,15 +2,16 @@
 
 namespace Juzaweb\Email\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Juzaweb\Email\Models\EmailList;
 use Juzaweb\Core\Http\Controllers\BackendController;
 
-class EmailLogsController extends BackendController
+class EmailLogController extends BackendController
 {
     public function index()
     {
-        return view('juzaweb::backend.logs.email', [
+        return view('jw_email::logs.email', [
             'title' => trans('juzaweb::app.email_logs'),
         ]);
     }
@@ -26,9 +27,9 @@ class EmailLogsController extends BackendController
         $query = EmailList::query();
     
         if ($search) {
-            $query->where(function ($subquery) use ($search) {
-                $subquery->orWhere('subject', 'like', '%'. $search .'%');
-                $subquery->orWhere('content', 'like', '%'. $search .'%');
+            $query->where(function (Builder $q) use ($search) {
+                $q->orWhere('subject', 'like', '%'. $search .'%');
+                $q->orWhere('content', 'like', '%'. $search .'%');
             });
         }
     
@@ -56,10 +57,10 @@ class EmailLogsController extends BackendController
     
     public function status(Request $request)
     {
-        $this->validateRequest([
+        $request->validate([
             'ids' => 'required',
             'status' => 'required|in:success,error,pending',
-        ], $request, [
+        ], [], [
             'ids' => trans('juzaweb::app.email_logs'),
             'status' => trans('juzaweb::app.status'),
         ]);
@@ -77,9 +78,9 @@ class EmailLogsController extends BackendController
     
     public function remove(Request $request)
     {
-        $this->validateRequest([
+        $request->validate([
             'ids' => 'required',
-        ], $request, [
+        ], [], [
             'ids' => trans('juzaweb::app.email_logs')
         ]);
         

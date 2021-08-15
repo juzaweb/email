@@ -14,6 +14,14 @@ class EmailTemplateServiceProvider extends ServiceProvider
         HookAction::loadActionForm(__DIR__ . '/../../actions');
         $this->loadViewsFrom(__DIR__ . '/../views', 'jw_email');
 
+        $this->publishes([
+            __DIR__ . '/../../config/email.php' => base_path('config/email.php'),
+        ], 'jw_email_config');
+
+        $this->publishes([
+            __DIR__ . '/../views' => resource_path('views/vendor/juzaweb/email'),
+        ], 'jw_email_views');
+
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
             $schedule->command('email:send')->everyMinute();
@@ -22,6 +30,8 @@ class EmailTemplateServiceProvider extends ServiceProvider
     
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__ . '/../../config/email.php', 'email');
+
         $this->commands([
             SendMailCommand::class,
         ]);
