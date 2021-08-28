@@ -13,6 +13,7 @@ class EmailTemplateServiceProvider extends ServiceProvider
     {
         HookAction::loadActionForm(__DIR__ . '/../../actions');
         $this->loadViewsFrom(__DIR__ . '/../views', 'jw_email');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         $this->publishes([
             __DIR__ . '/../../config/email.php' => base_path('config/email.php'),
