@@ -20,7 +20,7 @@ class EmailTemplateServiceProvider extends ServiceProvider
         ], 'jw_email_config');
 
         $this->publishes([
-            __DIR__ . '/../views' => resource_path('views/vendor/juzaweb/email'),
+            __DIR__ . '/../views' => resource_path('views/vendor/jw_email'),
         ], 'jw_email_views');
 
         $this->app->booted(function () {

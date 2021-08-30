@@ -9,15 +9,6 @@ use Juzaweb\Email\EmailService;
 
 class EmailController extends BackendController
 {
-    public function index()
-    {
-        $config = get_config('email', []);
-        return view('jw_email::email.index', [
-            'title' => trans('juzaweb::app.email_setting'),
-            'config' => $config,
-        ]);
-    }
-    
     public function save(Request $request)
     {
         $email = $request->post('email');

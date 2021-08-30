@@ -14,15 +14,10 @@
 
 use Juzaweb\Core\Facades\HookAction;
 
-HookAction::addAdminMenu(
-    trans('juzaweb::app.email_setting'),
-    'setting.email',
-    [
-        'icon' => 'fa fa-envelope',
-        'position' => 10,
-        'parent' => 'setting',
-    ]
-);
+HookAction::addSettingForm('email', [
+    'name' => trans('juzaweb::app.email_setting'),
+    'view' => 'jw_email::email.setting'
+]);
 
 HookAction::addAdminMenu(
     trans('juzaweb::app.email_templates'),

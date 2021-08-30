@@ -12,12 +12,10 @@
  * Time: 10:19 AM
  */
 
-Route::group(['prefix' => 'setting/email'], function () {
-    Route::get('/', 'EmailController@index')->name('admin.setting.test-email');
-
+Route::group(['prefix' => 'email'], function () {
     Route::post('/', 'EmailController@save')->name('admin.setting.email.save');
 
-    Route::post('send-test-mail', 'EmailController@sendTestMail')->name('admin.email.test-email');
+    Route::post('send-test-mail', 'EmailController@sendTestMail')->name('admin.setting.email.test-email');
 });
 
 Route::jwResource('email-template', 'EmailTemplateController');
