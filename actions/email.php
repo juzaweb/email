@@ -24,7 +24,7 @@ HookAction::addAdminMenu(
     'email-template',
     [
         'icon' => 'fa fa-envelope',
-        'position' => 10,
+        'position' => 50,
         'parent' => 'setting',
     ]
 );
